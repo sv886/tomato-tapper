@@ -5,11 +5,25 @@ module.exports = function(grunt) {
     watch: {
       files: ['*.js', '*.css'],
       task: ['updated']
+    },
+    // script in index.html is looking for src="dist/bundle.js"
+    // need to uglify assets into a bundle.js file
+    uglify: {
+      build: {
+        // add source files to bundle from
+        src: ['index.js', 'logger.js'],
+        // add destination to bundle to
+        dest: 'dist/bundle.js'
+      }
     }
   })
 
-  // load watching into grunt
+  // load watching into grunt - $ grunt watch will look for changes
   grunt.loadNpmTasks('grunt-contrib-watch');
+
+  // load uglifying into grunt - $ grunt uglify will create
+  // new minified bundle.js file (combines index.js and logger.js) in new dist/ dir
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('updated', () => {
     grunt.log.writeln(`It updated again!`);
