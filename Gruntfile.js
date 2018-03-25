@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
 
   // Define default task
-  grunt.registerTask('default', () => {
-    grunt.log.writeln(`Hello World!`);
+  // $grunt default:Mudda will log with name arg
+  grunt.registerTask('default', (name) => {
+    grunt.log.writeln(`Hello ${name}!`);
   });
 }
