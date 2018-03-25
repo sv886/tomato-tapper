@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   })
 
   // pull in name from initConfig above
-  grunt.registerTask('default', (name) => {
+  grunt.registerTask('default', () => {
     grunt.log.writeln(`Hello ${grunt.config.get('name')}!`);
   });
 }
