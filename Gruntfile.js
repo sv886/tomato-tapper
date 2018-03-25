@@ -2,6 +2,9 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     name: 'class'
+    watch: {
+      files: ['.js', '.css']
+    }
   })
 
   // pull in name from initConfig above
