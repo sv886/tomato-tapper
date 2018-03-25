@@ -1,8 +1,11 @@
 module.exports = function(grunt) {
 
-  // Define default task
-  // $grunt default:Mudda will log with name arg
+  grunt.initConfig({
+    name: 'class'
+  })
+
+  // pull in name from initConfig above
   grunt.registerTask('default', (name) => {
-    grunt.log.writeln(`Hello ${name}!`);
+    grunt.log.writeln(`Hello ${grunt.config.get('name')}!`);
   });
 }
