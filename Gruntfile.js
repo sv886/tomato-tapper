@@ -15,6 +15,17 @@ module.exports = function(grunt) {
         // add destination to bundle to
         dest: 'dist/bundle.js'
       }
+    },
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: ['@babel/preset-env']
+      },
+      dist: {
+        files: {
+          'dist/bundle.js': 'src/app.js'
+        }
+      }
     }
   })
 
@@ -24,6 +35,8 @@ module.exports = function(grunt) {
   // load uglifying into grunt - $ grunt uglify will create
   // new minified bundle.js file (combines index.js and logger.js) in new dist/ dir
   grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  grunt.registerTask('default', ['babel']);
 
   grunt.registerTask('updated', () => {
     grunt.log.writeln(`It updated again!`);
